@@ -15,8 +15,11 @@ contract Greeter {
         return greeting;
     }
 
+    event Success(string message);
     function setGreeting(string memory _greeting) public {
         console.log("Changing greeting from '%s' to '%s'", greeting, _greeting);
         greeting = _greeting;
+
+        emit Success('Contract Value Updated!');
     }
 }

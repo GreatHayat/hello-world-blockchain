@@ -4,7 +4,7 @@ import { Alert, Button, Col, Container, Row } from "reactstrap";
 import greet from "./abi/greet.json";
 import { web3Provider, signer } from "./utils/web3Provider";
 
-const CONTRACT_ADDRESS = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
+const CONTRACT_ADDRESS = "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82";
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
@@ -50,7 +50,10 @@ function App() {
     if (transactionReceipt.confirmations === 1) {
       await getGreetings();
       setGreetings("");
-      alert("Transaction Confirmed!");
+      // alert("Transaction Confirmed!");
+      contract.on("Success", (message) => {
+        alert("Event Message", message);
+      });
     }
   };
 
