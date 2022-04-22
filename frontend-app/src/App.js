@@ -52,7 +52,7 @@ function App() {
       setGreetings("");
       // alert("Transaction Confirmed!");
       contract.on("Success", (message) => {
-        alert("Event Message", message);
+        console.log("Event Message", message);
       });
     }
   };
